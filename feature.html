@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .bigbox {
+            width: 500px;
+            height: 500px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .tab {
+            width: 97px;
+            height: 30px;
+            margin-top: 1px;
+            border: 1px solid orangered;
+            margin-right: 1px;
+            background-color: gold;
+            float: left;
+            cursor: pointer;
+        }
+        .show {
+            width: 500px;
+            height: 466px;
+            background-color: gold;
+            position: absolute;
+            top: 34px;
+            left: 0;
+            display: none;
+        }
+        .red {
+            background-color: red;
+        }
+        .pink {
+            background-color:deeppink;
+        }
+        .blue {
+            background-color:skyblue;
+        }
+        .golden {
+            background-color:goldenrod;
+        }
+        .green {
+            background-color:greenyellow;
+        }
+        .block {
+            display: block;
+        }
+    </style>
+    <script>
+        window.onload= function () {
+            var tabs=document.querySelectorAll(".tab");
+            var showboxes=document.querySelectorAll(".show");
+            for(var i=0;i<tabs.length;i++)
+            {
+                tabs[i].setAttribute('data-index-num',i);// 设置属性
+                    tabs[i].onmouseover= function () {
+                        for(var k=0;k<tabs.length;k++)
+                        {
+                            tabs[k].classList.remove("green");
+                            showboxes[k].classList.remove("block");
+                        }
+                        this.classList.add("green");
+                        showboxes[this.dataset['indexNum']].classList.add("block");
+                    }
+
+            }
+            /*function showTab(tabs,showboxes,tab,showbox) {
+                for(var i=0;i<tabs.length;i++)
+                {
+                    tabs[i].classList.remove("block");
+                    showboxes[i].classList.remove("block");
+                }
+                tab.classList.add("blcok");
+                //showbox.classList.add("block");
+            }*/
+
+        }
+    </script>
+</head>
+<body>
+    <div class="bigbox">
+        <div class="tab1 tab"></div>
+        <div class="tab2 tab"></div>
+        <div class="tab3 tab"></div>
+        <div class="tab4 tab"></div>
+        <div class="tab5 tab"></div>
+        <div class="showbox1 show red block"></div>
+        <div class="showbox2 show pink"></div>
+        <div class="showbox3 show golden"></div>
+        <div class="showbox4 show blue"></div>
+        <div class="showbox5 show green"></div>
+    </div>
+</body>
+</html>
